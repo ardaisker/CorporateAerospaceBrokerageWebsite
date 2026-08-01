@@ -1,0 +1,12 @@
+# Güler Aero Solutions - Robots.txt
+# https://guleraero.com
+
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://guleraero.com/sitemap.xml
+
+# Disallow admin/test pages (if any)
+Disallow: /admin/
+Disallow: /_test/
