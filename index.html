@@ -42,6 +42,13 @@
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+    <!-- GitHub Pages ozel alan adlarinda hicbir guvenlik basligi gondermiyor ve
+         orada baslik ayarlanamiyor. Guvenlik basliklarinin cogu meta ile
+         calismaz (HSTS ve X-Frame-Options yok sayilir), ama Referrer-Policy
+         meta uzerinden tarayicilar tarafindan gercekten uygulaniyor — tek
+         satirlik da olsa gercek bir kazanc. -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <!-- Bilerek Content-Security-Policy meta etiketi konulmadi: kurumsal TLS
          denetleme vekilleri (Netskope gibi) sayfaya kendi satir ici betiklerini
          enjekte ediyor. Kati bir CSP bunlari engelleyip sayfayi vekil arkasinda
