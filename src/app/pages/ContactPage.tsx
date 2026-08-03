@@ -113,10 +113,11 @@ export const ContactPage: React.FC = () => {
               </h2>
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-name">
                     {t('contact.form.name')} *
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -127,10 +128,11 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-email">
                     {t('contact.form.email')} *
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -141,10 +143,11 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-phone">
                     {t('contact.form.phone')}
                   </label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -154,10 +157,11 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-message">
                     {t('contact.form.message')} *
                   </label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}

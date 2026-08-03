@@ -20,6 +20,7 @@ export const ServicesPage: React.FC = () => {
       description: t('services.brokerage.desc'),
       image: engineImage,
       link: '/spare-parts',
+      cta: language === 'en' ? 'View spare parts' : 'Yedek parçaları görün',
     },
     {
       icon: Link2,
@@ -27,6 +28,7 @@ export const ServicesPage: React.FC = () => {
       description: t('services.matching.desc'),
       image: handshakeImage,
       link: '/parts-request',
+      cta: language === 'en' ? 'Submit a parts request' : 'Parça talebi gönderin',
     },
     {
       icon: Briefcase,
@@ -34,6 +36,7 @@ export const ServicesPage: React.FC = () => {
       description: t('services.consultancy.desc'),
       image: boardroomImage,
       link: '/contact',
+      cta: language === 'en' ? 'Talk to a consultant' : 'Danışmanımıza ulaşın',
     },
   ];
 
@@ -100,7 +103,7 @@ export const ServicesPage: React.FC = () => {
                     to={service.link}
                     className="inline-flex items-center gap-2 text-[#2a5298] font-medium hover:gap-3 transition-all text-sm sm:text-base"
                   >
-                    {language === 'en' ? 'Learn More' : 'Daha Fazla Bilgi'}
+                    {service.cta}
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                 </div>

@@ -24,7 +24,7 @@ const translations = {
     // Homepage
     'hero.title': 'Aviation Parts Brokerage & Commercial Consultancy',
     'hero.subtitle': 'Connecting manufacturers and buyers directly through Right Part, Right Supplier, Right Commercial Structure with risk-reducing solutions',
-    'hero.cta': 'Learn More',
+    'hero.cta': 'Explore our services',
     
     'value.trust.title': 'Trust & Transparency',
     'value.trust.desc': 'Operating as a transparent intermediary with integrity at the core of every transaction',
@@ -153,7 +153,7 @@ const translations = {
     // Homepage
     'hero.title': 'Havacılık Parça Aracılığı & Ticari Danışmanlık',
     'hero.subtitle': 'Doğru Parça, Doğru Tedarikçi, Doğru Ticari Yapı prensipleriyle üreticileri ve alıcıları risk azaltıcı çözümlerle doğrudan bağlıyoruz',
-    'hero.cta': 'Daha Fazla Bilgi',
+    'hero.cta': 'Hizmetlerimizi inceleyin',
     
     'value.trust.title': 'Güven & Şeffaflık',
     'value.trust.desc': 'Her işlemin merkezinde dürüstlük ile şeffaf bir aracı olarak faaliyet gösteriyoruz',

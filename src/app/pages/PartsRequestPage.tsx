@@ -147,10 +147,11 @@ export const PartsRequestPage: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Full Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-fullName">
                   {t('partsrequest.form.fullname')} *
                 </label>
                 <input
+                    id="pr-fullName"
                   type="text"
                   name="fullName"
                   value={formData.fullName}
@@ -162,10 +163,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Company Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-companyName">
                   {t('partsrequest.form.companyname')} *
                 </label>
                 <input
+                    id="pr-companyName"
                   type="text"
                   name="companyName"
                   value={formData.companyName}
@@ -177,10 +179,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Company Country */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-country">
                   {t('partsrequest.form.country')} *
                 </label>
                 <input
+                    id="pr-country"
                   type="text"
                   name="country"
                   value={formData.country}
@@ -192,10 +195,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Job Title / Position */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-jobTitle">
                   {t('partsrequest.form.jobtitle')} *
                 </label>
                 <input
+                    id="pr-jobTitle"
                   type="text"
                   name="jobTitle"
                   value={formData.jobTitle}
@@ -207,10 +211,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Corporate Email Address */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-corporateEmail">
                   {t('partsrequest.form.corporateemail')} *
                 </label>
                 <input
+                    id="pr-corporateEmail"
                   type="email"
                   name="corporateEmail"
                   value={formData.corporateEmail}
@@ -222,10 +227,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Phone Number */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-phone">
                   {t('partsrequest.form.phone')}
                 </label>
                 <input
+                    id="pr-phone"
                   type="tel"
                   name="phone"
                   value={formData.phone}
@@ -237,10 +243,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Part Number (P/N) */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-partNumber">
                   {t('partsrequest.form.partnumber')} *
                 </label>
                 <input
+                    id="pr-partNumber"
                   type="text"
                   name="partNumber"
                   value={formData.partNumber}
@@ -252,10 +259,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Part Description */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-partDescription">
                   {t('partsrequest.form.partdescription')} *
                 </label>
                 <textarea
+                  id="pr-partDescription"
                   name="partDescription"
                   value={formData.partDescription}
                   onChange={handleChange}
@@ -267,10 +275,11 @@ export const PartsRequestPage: React.FC = () => {
 
               {/* Quantity Required */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-quantity">
                   {t('partsrequest.form.quantity')} *
                 </label>
                 <input
+                    id="pr-quantity"
                   type="number"
                   name="quantity"
                   value={formData.quantity}

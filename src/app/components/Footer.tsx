@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-[#1a2332] font-semibold mb-4">{t('contact.info.title')}</h3>
+            <h2 className="text-[#1a2332] font-semibold mb-4">{t('contact.info.title')}</h2>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-gray-600 text-sm">
                 <Mail className="w-4 h-4" />
@@ -55,9 +55,9 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-[#1a2332] font-semibold mb-4">
+            <h2 className="text-[#1a2332] font-semibold mb-4">
               {language === 'en' ? 'Quick Links' : 'Hızlı Bağlantılar'}
-            </h3>
+            </h2>
             <ul className="space-y-2 text-gray-600 text-sm">
               <li>
                 <Link to="/services" className="hover:text-[#1a2332] transition-colors">

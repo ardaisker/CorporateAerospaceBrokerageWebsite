@@ -62,9 +62,9 @@ export const HomePage: React.FC = () => {
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#2a5298] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <Shield className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
+              <h2 className="text-lg sm:text-xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
                 {t('value.trust.title')}
-              </h3>
+              </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {t('value.trust.desc')}
               </p>
@@ -74,9 +74,9 @@ export const HomePage: React.FC = () => {
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#2a5298] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <Globe className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
+              <h2 className="text-lg sm:text-xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
                 {t('value.international.title')}
-              </h3>
+              </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {t('value.international.desc')}
               </p>
@@ -86,9 +86,9 @@ export const HomePage: React.FC = () => {
               <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#2a5298] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                 <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
+              <h2 className="text-lg sm:text-xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
                 {t('value.compliance.title')}
-              </h3>
+              </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {t('value.compliance.desc')}
               </p>

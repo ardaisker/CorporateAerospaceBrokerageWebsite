@@ -74,9 +74,9 @@ export const StandardsPage: React.FC = () => {
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#2a5298] rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                   <standard.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
+                <h2 className="text-xl sm:text-2xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
                   {standard.title}
-                </h3>
+                </h2>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   {standard.description}
                 </p>
@@ -105,9 +105,9 @@ export const StandardsPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <Shield className="w-6 h-6 text-white flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-white mb-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
                       {language === 'en' ? 'Supplier Verification' : 'Tedarikçi Doğrulama'}
-                    </h4>
+                    </h3>
                     <p className="text-sm sm:text-base text-gray-200">
                       {language === 'en'
                         ? 'All suppliers undergo thorough vetting and certification verification'
@@ -118,9 +118,9 @@ export const StandardsPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <FileCheck className="w-6 h-6 text-white flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-white mb-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
                       {language === 'en' ? 'Documentation Review' : 'Dokümantasyon İncelemesi'}
-                    </h4>
+                    </h3>
                     <p className="text-sm sm:text-base text-gray-200">
                       {language === 'en'
                         ? 'Complete documentation package review for every component'
@@ -131,9 +131,9 @@ export const StandardsPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <ClipboardCheck className="w-6 h-6 text-white flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-white mb-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
                       {language === 'en' ? 'Continuous Monitoring' : 'Sürekli İzleme'}
-                    </h4>
+                    </h3>
                     <p className="text-sm sm:text-base text-gray-200">
                       {language === 'en'
                         ? 'Ongoing compliance monitoring throughout the supply chain'
@@ -145,9 +145,9 @@ export const StandardsPage: React.FC = () => {
             </div>
             <div className="bg-white/10 backdrop-blur-sm p-8 sm:p-10 lg:p-12 rounded-lg border border-white/20">
               <div className="text-white">
-                <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
                   {language === 'en' ? 'Our Commitment' : 'Taahhüdümüz'}
-                </h3>
+                </h2>
                 <div className="space-y-6">
                   <div>
                     <div className="text-4xl sm:text-5xl font-bold mb-2">100%</div>
