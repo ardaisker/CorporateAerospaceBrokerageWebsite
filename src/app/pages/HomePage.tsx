@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
 import { organizationSchema, generateBreadcrumbSchema } from '@/utils/structuredData';
-import aircraftHeroImage from 'figma:asset/5f75242ecd8559a759a21a07d09ab78ce4ffbd6b.png';
+import aircraftHeroImage from '@/assets/home-hero-aircraft.png';
 import { Shield, Globe, CheckCircle, ArrowRight, Plane, Users, Building2 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {

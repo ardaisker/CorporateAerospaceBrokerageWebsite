@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Globe, Menu, X } from 'lucide-react';
-import logo from 'figma:asset/159c5f4b772ccad009463cd0d5d12a8ffa3014a4.png';
+import logo from '@/assets/logo.png';
 
 export const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();

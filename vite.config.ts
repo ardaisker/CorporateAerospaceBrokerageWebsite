@@ -3,27 +3,17 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
-
-function figmaAssetResolver() {
-  return {
-    name: 'figma-asset-resolver',
-    resolveId(id) {
-      if (id.startsWith('figma:asset/')) {
-        const filename = id.replace('figma:asset/', '')
-        return path.resolve(__dirname, 'src/assets', filename)
-      }
-    },
-  }
-}
+// The Figma Make export shipped a `figmaAssetResolver` plugin that mapped
+// `figma:asset/<hash>.png` imports onto files in src/assets. The imports now
+// point at src/assets directly, so the plugin is gone — nothing in this build
+// depends on Figma's module protocol any more.
 
 export default defineConfig({
-  plugins: [
-    figmaAssetResolver(),
-    // The React and Tailwind plugins are both required for Make, even if
-    // Tailwind is not being actively used – do not remove them
-    react(),
-    tailwindcss(),
-  ],
+  // Relative base so the built site also works when served from a subpath.
+  base: '/',
+
+  plugins: [react(), tailwindcss()],
+
   resolve: {
     alias: {
       // Alias @ to the src directory

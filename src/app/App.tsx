@@ -14,6 +14,7 @@ import { StandardsPage } from '@/app/pages/StandardsPage';
 import { AboutPage } from '@/app/pages/AboutPage';
 import { ContactPage } from '@/app/pages/ContactPage';
 import { PartsRequestPage } from '@/app/pages/PartsRequestPage';
+import { NotFoundPage } from '@/app/pages/NotFoundPage';
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -90,6 +91,7 @@ export default function App() {
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/parts-request" element={<PartsRequestPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </Layout>
             } />

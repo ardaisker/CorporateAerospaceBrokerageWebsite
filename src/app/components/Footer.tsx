@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import logo from 'figma:asset/159c5f4b772ccad009463cd0d5d12a8ffa3014a4.png';
+import logo from '@/assets/logo.png';
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();

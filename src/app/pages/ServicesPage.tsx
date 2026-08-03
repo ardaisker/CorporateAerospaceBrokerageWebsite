@@ -5,9 +5,9 @@ import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
 import { Package, Link2, Briefcase, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import handshakeImage from 'figma:asset/931b253ce3f28ce066eecc870a9198f04b7fafc9.png';
-import engineImage from 'figma:asset/51c7bcd8dbfec148e09211171975e2c925d6e801.png';
-import boardroomImage from 'figma:asset/cb8415d2afe488d4cc6a78b83d5e6882985e4e8c.png';
+import handshakeImage from '@/assets/services-handshake.png';
+import engineImage from '@/assets/services-engine.png';
+import boardroomImage from '@/assets/services-boardroom.png';
 
 export const ServicesPage: React.FC = () => {
   const { t, language } = useLanguage();

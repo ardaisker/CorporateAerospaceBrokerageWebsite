@@ -132,6 +132,13 @@ const translations = {
     'partsrequest.form.success': 'Thank you for your parts request. We will review your requirements and contact you within 24 hours at info@guleraero.com.',
     'partsrequest.form.error': 'There was an error submitting your request. Please try again or contact us directly at info@guleraero.com.',
     'partsrequest.form.disclaimer': 'Submission of this form does not constitute an offer, representation, or agency relationship. All quotations are subject to availability, prior sale, and final confirmation.',
+
+    // Not found
+    'notfound.title': 'Page Not Found',
+    'notfound.subtitle': 'The page you are looking for does not exist or has been moved.',
+    'notfound.home': 'Back to Home',
+    'notfound.services': 'Our Services',
+    'notfound.contact': 'Contact Us',
   },
   tr: {
     // Navigation
@@ -254,6 +261,13 @@ const translations = {
     'partsrequest.form.success': 'Parça talebiniz için teşekkür ederiz. Taleplerinizi inceleyeceğiz ve 24 saat içinde info@guleraero.com adresinden size ulaşacağız.',
     'partsrequest.form.error': 'Talebinizi gönderirken bir hata oluştu. Lütfen tekrar deneyin veya doğrudan info@guleraero.com adresinden bize ulaşın.',
     'partsrequest.form.disclaimer': 'Bu formun gönderilmesi, teklif, temsil veya ajans ilişkisi oluşturmaz. Tüm teklifler, mevcutluk, önceden satma ve son onay koşullarına tabidir.',
+
+    // Not found
+    'notfound.title': 'Sayfa Bulunamadı',
+    'notfound.subtitle': 'Aradığınız sayfa mevcut değil veya taşınmış olabilir.',
+    'notfound.home': 'Ana Sayfaya Dön',
+    'notfound.services': 'Hizmetlerimiz',
+    'notfound.contact': 'İletişim',
   }
 };
 
