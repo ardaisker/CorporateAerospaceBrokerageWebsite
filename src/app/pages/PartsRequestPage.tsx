@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
+import { buildMailto } from '@/utils/mailtoFallback';
 import { Send, Package, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -135,11 +136,34 @@ export const PartsRequestPage: React.FC = () => {
 
           {/* Error Message */}
           {submitStatus === 'error' && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-              <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-red-800 leading-relaxed">
-                {t('partsrequest.form.error')}
-              </p>
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg" role="alert">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-red-800 leading-relaxed">
+                  {t('partsrequest.form.error')}
+                </p>
+              </div>
+              {/* Vekil api.emailjs.com'u engellediginde talep kaybolmasin diye
+                  girilen her alani tasiyan bir mailto sun. */}
+              <a
+                href={buildMailto(
+                  language === 'en' ? 'Aircraft parts request' : 'Uçak parçası talebi',
+                  [
+                    [language === 'en' ? 'Company' : 'Firma', formData.companyName],
+                    [language === 'en' ? 'Country' : 'Ülke', formData.country],
+                    [language === 'en' ? 'Contact' : 'Yetkili', formData.fullName],
+                    [language === 'en' ? 'Job title' : 'Görev', formData.jobTitle],
+                    [language === 'en' ? 'Email' : 'E-posta', formData.corporateEmail],
+                    [language === 'en' ? 'Phone' : 'Telefon', formData.phone],
+                    [language === 'en' ? 'Part number' : 'Parça numarası', formData.partNumber],
+                    [language === 'en' ? 'Description' : 'Açıklama', formData.partDescription],
+                    [language === 'en' ? 'Quantity' : 'Adet', formData.quantity],
+                  ]
+                )}
+                className="mt-3 inline-flex items-center gap-2 rounded bg-[#1a2332] px-4 py-2 text-sm font-medium text-white hover:bg-[#2a5298]"
+              >
+                {language === 'en' ? 'Send it by email instead' : 'Bunun yerine e-posta ile gönderin'}
+              </a>
             </div>
           )}
 

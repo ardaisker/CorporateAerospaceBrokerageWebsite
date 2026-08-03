@@ -108,4 +108,24 @@ Sitemap: ${SITE}/sitemap.xml
 `
 )
 
+/**
+ * RFC 9116 security.txt. Kurumsal URL filtreleme ve guvenlik tarayicilari icin
+ * alan adinin sahipli ve iletisime acik oldugunun makine tarafindan okunabilir
+ * isareti; kategorisiz alan adlarina uygulanan sert politikalari azaltmaya
+ * yardim eder. `Expires` zorunlu ve gelecekte olmali, o yuzden her derlemede
+ * bir yil ileri yaziliyor.
+ */
+const expires = new Date(Date.now() + 365 * 24 * 3600 * 1000).toISOString().replace(/\.\d{3}Z$/, 'Z')
+const securityTxt = `Contact: mailto:info@guleraero.com
+Expires: ${expires}
+Preferred-Languages: en, tr
+Canonical: ${SITE}/.well-known/security.txt
+`
+// Nokta ile baslayan dizinlerin elenmedigini garanti et.
+writeFileSync(join(dist, '.nojekyll'), '')
+mkdirSync(join(dist, '.well-known'), { recursive: true })
+writeFileSync(join(dist, '.well-known', 'security.txt'), securityTxt)
+// Bazi tarayicilar hala kokte ariyor.
+writeFileSync(join(dist, 'security.txt'), securityTxt)
+
 console.log(`postbuild: ${ROUTES.length} rota head'i yazildi + 404.html + sitemap.xml + robots.txt (lastmod ${lastmod})`)

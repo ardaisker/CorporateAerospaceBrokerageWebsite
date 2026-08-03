@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
+import { buildMailto } from '@/utils/mailtoFallback';
 import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -194,11 +195,31 @@ export const ContactPage: React.FC = () => {
                 </div>
               )}
               {submitStatus === 'error' && (
-                <div className="mt-4 text-sm text-red-500 flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5" />
-                  {language === 'en'
-                    ? 'An error occurred while sending your message. Please try again later.'
-                    : 'Mesajınızı gönderirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.'}
+                <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4" role="alert">
+                  <div className="flex items-start gap-2 text-sm text-red-800">
+                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <span>
+                      {language === 'en'
+                        ? 'We could not send your message from this network. Your details are still in the form below.'
+                        : 'Mesajınızı bu ağ üzerinden gönderemedik. Yazdıklarınız aşağıdaki formda duruyor.'}
+                    </span>
+                  </div>
+                  {/* Kurumsal vekiller api.emailjs.com'u sik engelliyor. Yazdigi
+                      her seyi tasiyan bir mailto ver ki talep kaybolmasin. */}
+                  <a
+                    href={buildMailto(
+                      language === 'en' ? 'Website enquiry' : 'Web sitesi talebi',
+                      [
+                        [language === 'en' ? 'Name' : 'Ad Soyad', formData.name],
+                        [language === 'en' ? 'Email' : 'E-posta', formData.email],
+                        [language === 'en' ? 'Phone' : 'Telefon', formData.phone],
+                        [language === 'en' ? 'Message' : 'Mesaj', formData.message],
+                      ]
+                    )}
+                    className="mt-3 inline-flex items-center gap-2 rounded bg-[#1a2332] px-4 py-2 text-sm font-medium text-white hover:bg-[#2a5298]"
+                  >
+                    {language === 'en' ? 'Send it by email instead' : 'Bunun yerine e-posta ile gönderin'}
+                  </a>
                 </div>
               )}
             </div>
