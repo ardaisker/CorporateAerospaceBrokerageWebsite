@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 type Language = 'en' | 'tr';
 
@@ -273,6 +273,13 @@ const translations = {
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
+
+  // index.html hardcodes lang="en". Switching to Turkish changed every string on
+  // the page but left the document declaring English, which misleads crawlers,
+  // screen readers and translation tooling alike.
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations['en']] || key;

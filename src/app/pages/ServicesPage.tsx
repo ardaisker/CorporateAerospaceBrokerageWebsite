@@ -5,9 +5,9 @@ import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
 import { Package, Link2, Briefcase, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import handshakeImage from '@/assets/services-handshake.png';
-import engineImage from '@/assets/services-engine.png';
-import boardroomImage from '@/assets/services-boardroom.png';
+import handshakeImage from '@/assets/services-handshake.webp';
+import engineImage from '@/assets/services-engine.webp';
+import boardroomImage from '@/assets/services-boardroom.webp';
 
 export const ServicesPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -76,6 +76,10 @@ export const ServicesPage: React.FC = () => {
                     <ImageWithFallback
                       src={service.image}
                       alt={service.title}
+                      width={1400}
+                      height={933}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </div>

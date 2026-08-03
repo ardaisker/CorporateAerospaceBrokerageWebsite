@@ -3,34 +3,35 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
-import { organizationSchema, generateBreadcrumbSchema } from '@/utils/structuredData';
-import aircraftHeroImage from '@/assets/home-hero-aircraft.png';
+
+import aircraftHeroImage from '@/assets/home-hero-aircraft.webp';
 import { Shield, Globe, CheckCircle, ArrowRight, Plane, Users, Building2 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const { t, language } = useLanguage();
   const seo = seoContent[language].home;
 
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: language === 'en' ? 'Home' : 'Ana Sayfa', url: 'https://guleraero.com/' }
-  ]);
-
   return (
     <div className="min-h-screen bg-white">
+      {/* Organization / WebSite / BreadcrumbList artik SEOHead icinde uretiliyor. */}
       <SEOHead
         title={seo.title}
         description={seo.description}
         canonical="https://guleraero.com/"
         keywords={seo.keywords}
-        structuredData={[organizationSchema, breadcrumbSchema]}
       />
-      
+
       {/* Hero Section */}
       <section className="relative h-[400px] sm:h-[500px] lg:h-[600px] bg-gradient-to-br from-[#1a2332] to-[#2a5298] overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img
             src={aircraftHeroImage}
-            alt="Commercial Aircraft - Aviation Industry"
+            alt="Commercial aircraft in flight"
+            width={1920}
+            height={1280}
+            // Sayfanin en buyuk gorseli: gec yuklenmemeli, oncelikli cekilmeli.
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>

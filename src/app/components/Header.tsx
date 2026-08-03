@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Globe, Menu, X } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo.webp';
 
 export const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between lg:justify-center lg:gap-12">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Guler Aero Solutions" className="h-12 sm:h-16" />
+            <img src={logo} alt="Guler Aero Solutions" width={700} height={234} className="h-12 w-auto sm:h-16" />
           </Link>
 
           {/* Mobile Menu Button */}

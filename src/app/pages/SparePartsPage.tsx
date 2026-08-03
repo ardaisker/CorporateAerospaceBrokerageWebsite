@@ -4,7 +4,7 @@ import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
 import { Plane, Package, FileCheck } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
-import enginePartsImage from '@/assets/spare-parts-engine.jpg';
+import enginePartsImage from '@/assets/spare-parts-engine.webp';
 
 export const SparePartsPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -146,7 +146,11 @@ export const SparePartsPage: React.FC = () => {
             <div className="rounded-lg overflow-hidden shadow-lg">
               <ImageWithFallback
                 src={enginePartsImage}
-                alt="Certified Aircraft Engine Parts - Aviation Components"
+                alt="Certified aircraft engine parts"
+                width={1080}
+                height={701}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

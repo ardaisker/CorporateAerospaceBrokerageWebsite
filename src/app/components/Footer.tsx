@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo.webp';
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div>
             <Link to="/">
-              <img src={logo} alt="Guler Aero Solutions" className="h-12 mb-4" />
+              <img src={logo} alt="Guler Aero Solutions" width={700} height={234} loading="lazy" className="h-12 w-auto mb-4" />
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed">
               {language === 'en' 

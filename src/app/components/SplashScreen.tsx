@@ -1,83 +1,72 @@
 import React, { useEffect, useState } from 'react';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo.webp';
 
 interface SplashScreenProps {
   onFinish: () => void;
 }
 
+/**
+ * Brand intro, shown once per session.
+ *
+ * This used to be returned *instead of* the site: App rendered
+ * `if (showSplash) return <SplashScreen />`, so for 3.6s nothing else existed
+ * in the DOM. That put Largest Contentful Paint at 3.6s floor on every first
+ * visit, and it is why the page looked blank whenever anything delayed the
+ * bundle. It is now an overlay above a fully rendered site, and short.
+ */
+const HOLD_MS = 700;
+const FADE_MS = 400;
+
 export const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // 3 saniye sonra fade out başlat
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-      // Fade out animasyonu bitince (600ms sonra) ana siteyi göster
-      setTimeout(() => {
-        onFinish();
-      }, 600);
-    }, 3000); // 3 saniye animasyon göster
+    // Anyone who asked for reduced motion gets no intro at all.
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      onFinish();
+      return;
+    }
 
-    return () => clearTimeout(timer);
+    const hold = setTimeout(() => setFadeOut(true), HOLD_MS);
+    const done = setTimeout(onFinish, HOLD_MS + FADE_MS);
+    return () => {
+      clearTimeout(hold);
+      clearTimeout(done);
+    };
   }, [onFinish]);
 
   return (
-    <div 
-      className={`fixed inset-0 bg-white/95 backdrop-blur-sm z-50 flex items-center justify-center transition-opacity duration-600 ${
+    <div
+      // aria-hidden + pointer-events-none: the real page underneath is already
+      // interactive and readable to assistive tech while this fades.
+      aria-hidden="true"
+      className={`pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity ${
         fadeOut ? 'opacity-0' : 'opacity-100'
       }`}
+      style={{ transitionDuration: `${FADE_MS}ms` }}
     >
       <div className="relative flex items-center justify-center">
-        {/* Dönen loading ring */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-48 h-48 border-4 border-gray-200 border-t-[#1a2332] rounded-full animate-spin"></div>
+          <div className="h-40 w-40 animate-spin rounded-full border-4 border-gray-200 border-t-[#1a2332]"></div>
         </div>
-        
-        {/* Logo animasyonu */}
-        <div className={`relative z-10 ${fadeOut ? '' : 'animate-logo-entry'}`}>
-          <img 
-            src={logo} 
-            alt="Guler Aero Solutions" 
-            className="h-24 w-auto animate-pulse-slow"
+        <div className="relative z-10 animate-logo-entry">
+          <img
+            src={logo}
+            alt=""
+            width={700}
+            height={234}
+            className="h-20 w-auto"
+            decoding="async"
           />
         </div>
       </div>
-      
-      {/* Custom CSS animasyonları için style tag */}
+
       <style>{`
         @keyframes logo-entry {
-          0% {
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.05);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
+          0%   { opacity: 0; transform: scale(0.9); }
+          100% { opacity: 1; transform: scale(1); }
         }
-        
-        .animate-logo-entry {
-          animation: logo-entry 0.8s ease-out forwards;
-        }
-        
-        @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.9;
-            transform: scale(1.02);
-          }
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse-slow 2s ease-in-out infinite;
-        }
+        .animate-logo-entry { animation: logo-entry 0.45s ease-out forwards; }
       `}</style>
     </div>
   );

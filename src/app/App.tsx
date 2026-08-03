@@ -62,15 +62,13 @@ export default function App() {
     sessionStorage.setItem('splashShown', 'true');
   };
 
-  // Splash screen gösterilirken
-  if (showSplash && !hasShownSplash) {
-    return <SplashScreen onFinish={handleSplashFinish} />;
-  }
-
-  // Ana site
+  // Ana site.
+  // Splash artık sitenin YERİNE değil ÜSTÜNE çiziliyor: içerik ilk boyamadan
+  // itibaren DOM'da, giriş animasyonu üstünde sönerek geçiyor.
   return (
     <HelmetProvider>
       <LanguageProvider>
+        {showSplash && !hasShownSplash && <SplashScreen onFinish={handleSplashFinish} />}
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
