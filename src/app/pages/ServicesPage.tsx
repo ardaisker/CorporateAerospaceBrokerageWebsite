@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
+import { PageHeader } from '@/app/components/primitives/PageHeader';
 import { Package, Link2, Briefcase, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import handshakeImage from '@/assets/services-handshake.webp';
@@ -49,19 +50,7 @@ export const ServicesPage: React.FC = () => {
         keywords={seo.keywords}
       />
       
-      {/* Header Section */}
-      <section className="bg-gradient-to-br from-[#1a2332] to-[#2a5298] py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-              {t('services.title')}
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed">
-              {t('services.subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader title={t('services.title')} subtitle={t('services.subtitle')} />
 
       {/* Services Grid */}
       <section className="py-12 sm:py-16 lg:py-20">
@@ -89,19 +78,19 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <div className="flex-1 w-full">
                   <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#2a5298] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-600 rounded-lg flex items-center justify-center flex-shrink-0">
                       <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-[#1a2332]">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-brand-900">
                       {service.title}
                     </h2>
                   </div>
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
+                  <p className="text-base sm:text-lg text-ink-muted leading-relaxed mb-4 sm:mb-6">
                     {service.description}
                   </p>
                   <Link
                     to={service.link}
-                    className="inline-flex items-center gap-2 text-[#2a5298] font-medium hover:gap-3 transition-all text-sm sm:text-base"
+                    className="inline-flex items-center gap-2 text-brand-600 font-medium hover:gap-3 transition-all text-sm sm:text-base"
                   >
                     {service.cta}
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -114,13 +103,13 @@ export const ServicesPage: React.FC = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#1a2332] to-[#2a5298]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-brand-900 to-brand-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
               {language === 'en' ? 'Why Choose Guler Aero Solutions?' : 'Neden Guler Aero Solutions?'}
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-brand-100 max-w-3xl mx-auto">
               {language === 'en'
                 ? 'Professional solutions backed by international expertise and compliance'
                 : 'Uluslararası uzmanlık ve uyumlulukla desteklenen profesyonel çözümler'}
@@ -132,7 +121,7 @@ export const ServicesPage: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
                 {language === 'en' ? 'Transparent Operations' : 'Şeffaf Operasyonlar'}
               </h3>
-              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+              <p className="text-sm sm:text-base text-brand-100 leading-relaxed">
                 {language === 'en'
                   ? 'Clear pricing, complete documentation, and open communication throughout the procurement process.'
                   : 'Net fiyatlandırma, eksiksiz dokümantasyon ve tedarik süreci boyunca açık iletişim.'}
@@ -143,7 +132,7 @@ export const ServicesPage: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
                 {language === 'en' ? 'Risk Reduction' : 'Risk Azaltma'}
               </h3>
-              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+              <p className="text-sm sm:text-base text-brand-100 leading-relaxed">
                 {language === 'en'
                   ? 'Vetted suppliers, certified components, and comprehensive quality assurance minimize procurement risks.'
                   : 'Doğrulanmış tedarikçiler, sertifikalı bileşenler ve kapsamlı kalite güvencesi tedarik risklerini minimize eder.'}
@@ -154,7 +143,7 @@ export const ServicesPage: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
                 {language === 'en' ? 'Global Network' : 'Küresel Ağ'}
               </h3>
-              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+              <p className="text-sm sm:text-base text-brand-100 leading-relaxed">
                 {language === 'en'
                   ? 'Extensive international connections with manufacturers and buyers across aerospace markets.'
                   : 'Havacılık pazarlarında üreticiler ve alıcılarla kapsamlı uluslararası bağlantılar.'}
@@ -165,7 +154,7 @@ export const ServicesPage: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
                 {language === 'en' ? 'Industry Expertise' : 'Sektör Uzmanlığı'}
               </h3>
-              <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+              <p className="text-sm sm:text-base text-brand-100 leading-relaxed">
                 {language === 'en'
                   ? 'Deep understanding of aerospace, aviation, and defense industry requirements and regulations.'
                   : 'Havacılık, uzay ve savunma sanayi gereksinimleri ve düzenlemeleri konusunda derin anlayış.'}

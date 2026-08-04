@@ -1,5 +1,65 @@
 @custom-variant dark (&:is(.dark *));
 
+/**
+ * Design tokens.
+ *
+ * The components were written with raw hex — text-[#1a2332] and bg-[#2a5298]
+ * appeared 125 times — so there was no way to adjust the palette, no scale to
+ * build hierarchy with, and every shade was a guess made at the call site.
+ *
+ * The ramp is anchored on the two colours the logo actually contains: #2a5298
+ * (the wordmark blue, now brand-600, the action colour) and #1a2332 (the mark's
+ * navy, now brand-900, the dark surface). Neutrals are slate, which is what the
+ * Trust & Authority palette pairs with navy.
+ *
+ * Contrast, measured against white: ink 17:1, ink-muted 7.5:1, ink-subtle 4.8:1,
+ * brand-600 7.0:1. White on brand-600 7.0:1, white on brand-900 15:1.
+ */
+@theme {
+  --color-brand-50: #f2f5fa;
+  --color-brand-100: #e3eaf5;
+  --color-brand-200: #c7d5ea;
+  --color-brand-300: #9db6d9;
+  --color-brand-400: #6c90c3;
+  --color-brand-500: #4a6fae;
+  --color-brand-600: #2a5298;
+  --color-brand-700: #24427a;
+  --color-brand-800: #1f3660;
+  --color-brand-900: #1a2332;
+  --color-brand-950: #111823;
+
+  /* Yuzeyler ve metin: anlami adlandirilmis, ton degeriyle degil. */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-surface-sunken: #f1f5f9;
+  --color-ink: #0f172a;
+  --color-ink-muted: #475569;
+  --color-ink-subtle: #64748b;
+  --color-line: #e2e8f0;
+  --color-line-strong: #cbd5e1;
+
+  /* WhatsApp marka renkleri. Parlak yesil (#25d366) yalniz ikon/vurgu icin:
+     uzerinde beyaz metin 1.98:1 veriyor, yani metin tasiyamaz. Uzerine yazi
+     gelen yuzeylerde WhatsApp'in koyu teal tonu kullaniliyor — beyazla
+     5.22:1 (hover 7.87:1), marka taniniirligi korunuyor. Ara ton #128c7e
+     de denendi, 4.14:1 ile AA'nin altinda kaldi. */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-surface: #0f7a6c;
+  --color-whatsapp-surface-hover: #0b5c52;
+
+  --font-display: 'Lexend', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Bolum ritmi: benzer hiyerarsideki bosluklar ayni degeri kullansin. */
+  --spacing-section: 5rem;
+  --spacing-section-lg: 7rem;
+
+  /* Yukselti olcegi — kartlar, acilir menuler, kaldirilmis durumlar. */
+  --shadow-e1: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 3px 0 rgb(15 23 42 / 0.06);
+  --shadow-e2: 0 2px 4px -1px rgb(15 23 42 / 0.05), 0 4px 12px -2px rgb(15 23 42 / 0.08);
+  --shadow-e3: 0 8px 16px -4px rgb(15 23 42 / 0.08), 0 16px 32px -8px rgb(15 23 42 / 0.12);
+}
+
 :root {
   --font-size: 16px;
   --background: #ffffff;
@@ -129,53 +189,92 @@
   }
 
   /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
+   * Typography.
+   *
+   * Previously every heading was weight 500 at line-height 1.5 — the same
+   * rhythm as body copy — so a heading only read as a heading because it was
+   * bigger. Headings now take Lexend at 600/700 with tight leading and slight
+   * negative tracking at display sizes; body takes Source Sans 3 at 1.65
+   * leading, which is the comfortable range for the long paragraphs on the
+   * about and services pages.
+   *
+   * These live in @layer base, so any Tailwind text utility still wins.
+   */
 
   html {
     font-size: var(--font-size);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    text-wrap: balance;
   }
 
   h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.022em;
   }
 
   h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.018em;
   }
 
   h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: -0.012em;
   }
 
   h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-size: var(--text-lg);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Uzun metinler icin olcu: satir 75 karakteri gecince goz satir basini kaybediyor. */
+  p {
+    text-wrap: pretty;
   }
 
   label {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-sm);
+    font-weight: 600;
     line-height: 1.5;
+    color: var(--color-ink-muted);
   }
 
   button {
+    font-family: var(--font-sans);
     font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
+    font-weight: 600;
     line-height: 1.5;
   }
 
-  input {
+  input,
+  textarea,
+  select {
+    font-family: var(--font-sans);
     font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
+    font-weight: 400;
     line-height: 1.5;
   }
 }

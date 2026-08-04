@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
+import { PageHeader } from '@/app/components/primitives/PageHeader';
 import { buildMailto } from '@/utils/mailtoFallback';
 import { Send, Package, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -104,22 +105,7 @@ export const PartsRequestPage: React.FC = () => {
         keywords={seo.keywords}
       />
       
-      {/* Header Section */}
-      <section className="bg-gradient-to-br from-[#1a2332] to-[#2a5298] py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <Package className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                {t('partsrequest.title')}
-              </h1>
-            </div>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed">
-              {t('partsrequest.subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader title={t('partsrequest.title')} subtitle={t('partsrequest.subtitle')} />
 
       {/* Parts Request Form */}
       <section className="py-12 sm:py-16 lg:py-20">
@@ -160,18 +146,18 @@ export const PartsRequestPage: React.FC = () => {
                     [language === 'en' ? 'Quantity' : 'Adet', formData.quantity],
                   ]
                 )}
-                className="mt-3 inline-flex items-center gap-2 rounded bg-[#1a2332] px-4 py-2 text-sm font-medium text-white hover:bg-[#2a5298]"
+                className="mt-3 inline-flex items-center gap-2 rounded bg-brand-900 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600"
               >
                 {language === 'en' ? 'Send it by email instead' : 'Bunun yerine e-posta ile gönderin'}
               </a>
             </div>
           )}
 
-          <div className="bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-200">
+          <div className="bg-surface-muted p-6 sm:p-8 rounded-lg border border-line">
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Full Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-fullName">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-fullName">
                   {t('partsrequest.form.fullname')} *
                 </label>
                 <input
@@ -181,13 +167,13 @@ export const PartsRequestPage: React.FC = () => {
                   value={formData.fullName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
               {/* Company Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-companyName">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-companyName">
                   {t('partsrequest.form.companyname')} *
                 </label>
                 <input
@@ -197,13 +183,13 @@ export const PartsRequestPage: React.FC = () => {
                   value={formData.companyName}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
               {/* Company Country */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-country">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-country">
                   {t('partsrequest.form.country')} *
                 </label>
                 <input
@@ -213,13 +199,13 @@ export const PartsRequestPage: React.FC = () => {
                   value={formData.country}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
               {/* Job Title / Position */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-jobTitle">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-jobTitle">
                   {t('partsrequest.form.jobtitle')} *
                 </label>
                 <input
@@ -229,13 +215,13 @@ export const PartsRequestPage: React.FC = () => {
                   value={formData.jobTitle}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
               {/* Corporate Email Address */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-corporateEmail">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-corporateEmail">
                   {t('partsrequest.form.corporateemail')} *
                 </label>
                 <input
@@ -245,13 +231,13 @@ export const PartsRequestPage: React.FC = () => {
                   value={formData.corporateEmail}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
               {/* Phone Number */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-phone">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-phone">
                   {t('partsrequest.form.phone')}
                 </label>
                 <input
@@ -261,13 +247,13 @@ export const PartsRequestPage: React.FC = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+90 XXX XXX XX XX"
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
               {/* Part Number (P/N) */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-partNumber">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-partNumber">
                   {t('partsrequest.form.partnumber')} *
                 </label>
                 <input
@@ -277,13 +263,13 @@ export const PartsRequestPage: React.FC = () => {
                   value={formData.partNumber}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
               {/* Part Description */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-partDescription">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-partDescription">
                   {t('partsrequest.form.partdescription')} *
                 </label>
                 <textarea
@@ -293,13 +279,13 @@ export const PartsRequestPage: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors resize-none"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30 resize-none"
                 />
               </div>
 
               {/* Quantity Required */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="pr-quantity">
+                <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="pr-quantity">
                   {t('partsrequest.form.quantity')} *
                 </label>
                 <input
@@ -310,7 +296,7 @@ export const PartsRequestPage: React.FC = () => {
                   onChange={handleChange}
                   required
                   min="1"
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors"
+                  className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                 />
               </div>
 
@@ -318,7 +304,7 @@ export const PartsRequestPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#2a5298] text-white px-6 py-4 rounded hover:bg-[#1e3d6f] transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-brand-600 text-white px-6 py-4 rounded hover:bg-brand-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-5 h-5" />
                 {isSubmitting 
@@ -328,8 +314,8 @@ export const PartsRequestPage: React.FC = () => {
               </button>
 
               {/* Disclaimer */}
-              <div className="mt-6 pt-6 border-t border-gray-300">
-                <p className="text-xs text-gray-500 leading-relaxed">
+              <div className="mt-6 pt-6 border-t border-line-strong">
+                <p className="text-xs text-ink-subtle leading-relaxed">
                   {t('partsrequest.form.disclaimer')}
                 </p>
               </div>

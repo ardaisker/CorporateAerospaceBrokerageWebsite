@@ -26,14 +26,14 @@ export const NotFoundPage: React.FC = () => {
         canonical="https://guleraero.com"
       />
 
-      <section className="bg-gradient-to-br from-[#1a2332] to-[#2a5298] py-16 sm:py-20 lg:py-28">
+      <section className="bg-gradient-to-br from-brand-900 to-brand-600 py-16 sm:py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl">
             <p className="text-5xl sm:text-6xl font-bold text-white/40 mb-4">404</p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
               {t('notfound.title')}
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-brand-100 leading-relaxed">
               {t('notfound.subtitle')}
             </p>
           </div>
@@ -47,10 +47,10 @@ export const NotFoundPage: React.FC = () => {
               <Link
                 key={to}
                 to={to}
-                className="flex items-center gap-3 rounded-lg border border-gray-200 p-5 transition-colors hover:border-[#2a5298] hover:bg-gray-50"
+                className="flex items-center gap-3 rounded-lg border border-line p-5 transition-colors hover:border-brand-600 hover:bg-surface-muted"
               >
-                <Icon className="h-5 w-5 shrink-0 text-[#2a5298]" aria-hidden="true" />
-                <span className="font-medium text-[#1a2332]">{label}</span>
+                <Icon className="h-5 w-5 shrink-0 text-brand-600" aria-hidden="true" />
+                <span className="font-medium text-brand-900">{label}</span>
               </Link>
             ))}
           </div>

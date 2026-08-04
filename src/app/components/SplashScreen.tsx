@@ -47,7 +47,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
     >
       <div className="relative flex items-center justify-center">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="h-40 w-40 animate-spin rounded-full border-4 border-gray-200 border-t-[#1a2332]"></div>
+          <div className="h-40 w-40 animate-spin rounded-full border-4 border-line border-t-brand-900"></div>
         </div>
         <div className="relative z-10 animate-logo-entry">
           <img

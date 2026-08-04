@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
+import { PageHeader } from '@/app/components/primitives/PageHeader';
 import { buildMailto } from '@/utils/mailtoFallback';
 import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -89,32 +90,20 @@ export const ContactPage: React.FC = () => {
         keywords={seo.keywords}
       />
       
-      {/* Header Section */}
-      <section className="bg-gradient-to-br from-[#1a2332] to-[#2a5298] py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-              {t('contact.title')}
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed">
-              {t('contact.subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader title={t('contact.title')} subtitle={t('contact.subtitle')} />
 
       {/* Contact Content */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
             {/* Contact Form */}
-            <div className="bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-200">
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1a2332] mb-4 sm:mb-6">
+            <div className="bg-surface-muted p-6 sm:p-8 rounded-lg border border-line">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-900 mb-4 sm:mb-6">
                 {language === 'en' ? 'Send Us a Message' : 'Bize Mesaj Gönderin'}
               </h2>
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-name">
+                  <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="contact-name">
                     {t('contact.form.name')} *
                   </label>
                   <input
@@ -124,12 +113,12 @@ export const ContactPage: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors text-base"
+                    className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-email">
+                  <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="contact-email">
                     {t('contact.form.email')} *
                   </label>
                   <input
@@ -139,12 +128,12 @@ export const ContactPage: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors text-base"
+                    className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-phone">
+                  <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="contact-phone">
                     {t('contact.form.phone')}
                   </label>
                   <input
@@ -153,12 +142,12 @@ export const ContactPage: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors text-base"
+                    className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="contact-message">
+                  <label className="block text-sm font-medium text-ink-muted mb-2" htmlFor="contact-message">
                     {t('contact.form.message')} *
                   </label>
                   <textarea
@@ -168,14 +157,14 @@ export const ContactPage: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-[#2a5298] transition-colors resize-none text-base"
+                    className="w-full rounded-lg border border-line-strong bg-surface px-4 py-3 text-base text-ink placeholder:text-ink-subtle transition-[border-color,box-shadow] duration-200 hover:border-brand-300 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#2a5298] text-white px-6 py-3 sm:py-4 rounded hover:bg-[#1e3d6f] transition-colors font-medium flex items-center justify-center gap-2 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-brand-600 text-white px-6 py-3 sm:py-4 rounded hover:bg-brand-700 transition-colors font-medium flex items-center justify-center gap-2 text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5" />
                   {isSubmitting 
@@ -216,7 +205,7 @@ export const ContactPage: React.FC = () => {
                         [language === 'en' ? 'Message' : 'Mesaj', formData.message],
                       ]
                     )}
-                    className="mt-3 inline-flex items-center gap-2 rounded bg-[#1a2332] px-4 py-2 text-sm font-medium text-white hover:bg-[#2a5298]"
+                    className="mt-3 inline-flex items-center gap-2 rounded bg-brand-900 px-4 py-2 text-sm font-medium text-white hover:bg-brand-600"
                   >
                     {language === 'en' ? 'Send it by email instead' : 'Bunun yerine e-posta ile gönderin'}
                   </a>
@@ -227,34 +216,34 @@ export const ContactPage: React.FC = () => {
             {/* Contact Information */}
             <div>
               <div className="mb-8 sm:mb-12">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#1a2332] mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-900 mb-4 sm:mb-6">
                   {t('contact.info.title')}
                 </h2>
                 <div className="space-y-4 sm:space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#2a5298] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-600 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex items-center h-12">
-                      <a href="mailto:info@guleraero.com" className="text-sm sm:text-base text-gray-600 hover:text-[#2a5298] transition-colors break-all">
+                      <a href="mailto:info@guleraero.com" className="text-sm sm:text-base text-ink-muted hover:text-brand-600 transition-colors break-all">
                         info@guleraero.com
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#2a5298] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-600 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex items-center h-12">
-                      <a href="tel:+905316699519" className="text-sm sm:text-base text-gray-600 hover:text-[#2a5298] transition-colors">
+                      <a href="tel:+905316699519" className="text-sm sm:text-base text-ink-muted hover:text-brand-600 transition-colors">
                         +90 531 669 9519
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#25D366] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-whatsapp rounded-lg flex items-center justify-center flex-shrink-0">
                       <MessageCircle className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex items-center h-12">
@@ -262,7 +251,7 @@ export const ContactPage: React.FC = () => {
                         href="https://wa.me/905316699519" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-sm sm:text-base text-gray-600 hover:text-[#25D366] transition-colors"
+                        className="text-sm sm:text-base text-ink-muted hover:text-whatsapp transition-colors"
                       >
                         {language === 'en' ? 'Chat on WhatsApp' : 'WhatsApp ile Mesajlaşın'}
                       </a>
@@ -272,13 +261,13 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Operating Hours */}
-              <div className="bg-gradient-to-br from-[#1a2332] to-[#2a5298] p-6 sm:p-8 rounded-lg text-white">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
+              <div className="bg-gradient-to-br from-brand-900 to-brand-600 p-6 sm:p-8 rounded-lg text-white">
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">
                   {language === 'en' ? 'Response Time' : 'Yanıt Süresi'}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-200 mb-4 sm:mb-6">{t('contact.info.response')}</p>
+                <p className="text-sm sm:text-base text-brand-100 mb-4 sm:mb-6">{t('contact.info.response')}</p>
                 <div className="border-t border-white/20 pt-4 sm:pt-6">
-                  <p className="text-sm text-gray-300">
+                  <p className="text-sm text-brand-200">
                     {language === 'en'
                       ? 'For urgent inquiries, please indicate "URGENT" in your message subject.'
                       : 'Acil talepler için lütfen mesaj konunuzda "ACİL" belirtiniz.'}
@@ -291,13 +280,13 @@ export const ContactPage: React.FC = () => {
       </section>
 
       {/* Additional Information */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#1a2332] to-[#2a5298]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-brand-900 to-brand-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
               {language === 'en' ? 'How Can We Help?' : 'Nasıl Yardımcı Olabiliriz?'}
             </h2>
-            <p className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-brand-100 max-w-3xl mx-auto">
               {language === 'en'
                 ? 'Our team is ready to discuss your aerospace parts requirements, commercial consultancy needs, or any questions about our services.'
                 : 'Ekibimiz havacılık parça gereksinimlerinizi, ticari danışmanlık ihtiyaçlarınızı veya hizmetlerimizle ilgili herhangi bir sorunuzu görüşmeye hazırdır.'}
@@ -309,7 +298,7 @@ export const ContactPage: React.FC = () => {
               <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
                 {language === 'en' ? 'Parts Inquiries' : 'Parça Talepleri'}
               </h3>
-              <p className="text-sm text-gray-200">
+              <p className="text-sm text-brand-100">
                 {language === 'en'
                   ? 'Specific component requirements and sourcing'
                   : 'Spesifik bileşen gereksinimleri ve tedarik'}
@@ -320,7 +309,7 @@ export const ContactPage: React.FC = () => {
               <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
                 {language === 'en' ? 'Consultancy Services' : 'Danışmanlık Hizmetleri'}
               </h3>
-              <p className="text-sm text-gray-200">
+              <p className="text-sm text-brand-100">
                 {language === 'en'
                   ? 'Strategic advisory and procurement optimization'
                   : 'Stratejik danışmanlık ve tedarik optimizasyonu'}
@@ -331,7 +320,7 @@ export const ContactPage: React.FC = () => {
               <h3 className="text-base sm:text-lg font-semibold text-white mb-2">
                 {language === 'en' ? 'Partnership Opportunities' : 'Ortaklık Fırsatları'}
               </h3>
-              <p className="text-sm text-gray-200">
+              <p className="text-sm text-brand-100">
                 {language === 'en'
                   ? 'Become a supplier or distribution partner'
                   : 'Tedarikçi veya distribütör ortak olun'}

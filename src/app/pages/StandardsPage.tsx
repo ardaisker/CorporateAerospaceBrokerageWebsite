@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { SEOHead } from '@/app/components/SEOHead';
 import { seoContent } from '@/utils/seoContent';
+import { PageHeader } from '@/app/components/primitives/PageHeader';
 import { Shield, FileCheck, Globe, ClipboardCheck } from 'lucide-react';
 
 export const StandardsPage: React.FC = () => {
@@ -48,19 +49,7 @@ export const StandardsPage: React.FC = () => {
         keywords={seo.keywords}
       />
       
-      {/* Header Section */}
-      <section className="bg-gradient-to-br from-[#1a2332] to-[#2a5298] py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-              {t('standards.title')}
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed">
-              {t('standards.subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader title={t('standards.title')} subtitle={t('standards.subtitle')} />
 
       {/* Standards Grid */}
       <section className="py-12 sm:py-16 lg:py-20">
@@ -69,15 +58,15 @@ export const StandardsPage: React.FC = () => {
             {standards.map((standard, index) => (
               <div
                 key={index}
-                className="bg-gray-50 p-6 sm:p-8 rounded-lg border border-gray-200"
+                className="bg-surface-muted p-6 sm:p-8 rounded-lg border border-line"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#2a5298] rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-600 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                   <standard.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-semibold text-[#1a2332] mb-3 sm:mb-4">
+                <h2 className="text-xl sm:text-2xl font-semibold text-brand-900 mb-3 sm:mb-4">
                   {standard.title}
                 </h2>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-ink-muted leading-relaxed">
                   {standard.description}
                 </p>
               </div>
@@ -87,7 +76,7 @@ export const StandardsPage: React.FC = () => {
       </section>
 
       {/* Quality Assurance Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#1a2332] to-[#2a5298]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-brand-900 to-brand-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             <div>
@@ -96,7 +85,7 @@ export const StandardsPage: React.FC = () => {
                   ? 'Comprehensive Quality Assurance'
                   : 'Kapsamlı Kalite Güvencesi'}
               </h2>
-              <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg text-brand-100 leading-relaxed mb-6 sm:mb-8">
                 {language === 'en'
                   ? 'Every transaction is backed by rigorous quality assurance protocols ensuring safety, compliance, and reliability.'
                   : 'Her işlem katı kalite güvence protokolleri ile destekleniyor, güvenlik ve uyumluluk garantileniyor.'}
@@ -108,7 +97,7 @@ export const StandardsPage: React.FC = () => {
                     <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
                       {language === 'en' ? 'Supplier Verification' : 'Tedarikçi Doğrulama'}
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-200">
+                    <p className="text-sm sm:text-base text-brand-100">
                       {language === 'en'
                         ? 'All suppliers undergo thorough vetting and certification verification'
                         : 'Tüm tedarikçiler kapsamlı inceleme ve sertifika kontrolünden geçiyor'}
@@ -121,7 +110,7 @@ export const StandardsPage: React.FC = () => {
                     <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
                       {language === 'en' ? 'Documentation Review' : 'Dokümantasyon İncelemesi'}
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-200">
+                    <p className="text-sm sm:text-base text-brand-100">
                       {language === 'en'
                         ? 'Complete documentation package review for every component'
                         : 'Her parça için eksiksiz dokümantasyon incelemesi'}
@@ -134,7 +123,7 @@ export const StandardsPage: React.FC = () => {
                     <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
                       {language === 'en' ? 'Continuous Monitoring' : 'Sürekli İzleme'}
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-200">
+                    <p className="text-sm sm:text-base text-brand-100">
                       {language === 'en'
                         ? 'Ongoing compliance monitoring throughout the supply chain'
                         : 'Tedarik zinciri boyunca kesintisiz uyumluluk takibi'}
@@ -145,19 +134,19 @@ export const StandardsPage: React.FC = () => {
             </div>
             <div className="bg-white/10 backdrop-blur-sm p-8 sm:p-10 lg:p-12 rounded-lg border border-white/20">
               <div className="text-white">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-white">
                   {language === 'en' ? 'Our Commitment' : 'Taahhüdümüz'}
                 </h2>
                 <div className="space-y-6">
                   <div>
                     <div className="text-4xl sm:text-5xl font-bold mb-2">100%</div>
-                    <p className="text-sm sm:text-base text-gray-200">
+                    <p className="text-sm sm:text-base text-brand-100">
                       {language === 'en' ? 'Certified Components' : 'Sertifikalı Bileşenler'}
                     </p>
                   </div>
                   <div>
                     <div className="text-4xl sm:text-5xl font-bold mb-2">100%</div>
-                    <p className="text-sm sm:text-base text-gray-200">
+                    <p className="text-sm sm:text-base text-brand-100">
                       {language === 'en' ? 'Documented Traceability' : 'Dokümante İzlenebilirlik'}
                     </p>
                   </div>
